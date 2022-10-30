@@ -35,26 +35,26 @@ auto eth3
 iface eth3 inet static
     address 10.36.3.1
     netmask 255.255.255.0
-  
+ ```
 SSS and Garden as Client
 ```bash
 apt-get update         
 apt-get install dnsutils 
-  
+``` 
 ```bash
 auto eth0
 iface eth0 inet static
     address 10.36.1.2
     netmask 255.255.255.0
     gateway 10.36.1.1
-  
+```  
 ```bash
 auto eth0
 iface eth0 inet static
     address 10.36.1.3
     netmask 255.255.255.0
     gateway 10.36.1.1
-
+```
 Wise as DNS Master
 ```bash
 auto eth2
@@ -62,7 +62,7 @@ iface eth2 inet static
     address 10.36.2.2
     netmask 255.255.255.0
     gateway 10.36.2.1
-  
+```  
 Berlin as DNS Slave
 ```bash
 auto eth0
@@ -70,7 +70,7 @@ iface eth0 inet static
     address 10.36.3.2
     netmask 255.255.255.0
     gateway 10.36.3.1
- 
+``` 
 Eden as Web Server
 ```bash
 auto eth0
@@ -78,7 +78,7 @@ iface eth0 inet static
     address 10.36.3.3
     netmask 255.255.255.0
     gateway 10.36.3.1
-  
+```  
 
 ### 2
   
