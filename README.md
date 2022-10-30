@@ -90,5 +90,6 @@ zone "wise.I05.com" {
 };
 ```
 Create a new directory which is ```/etc/bind/wise```
+---
 Adding configuration to ``` /etc/bind/wise/wise.I05.com```
     
