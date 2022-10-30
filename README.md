@@ -16,6 +16,7 @@ To make it easier to get information about the mission from Handler, help Loid c
 First we create the topology as follows:
 
 then we do the configuration on each node :
----
 SSS as Client
- 
+```bash
+apt-get update         
+apt-get install dnsutils 
