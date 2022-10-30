@@ -115,7 +115,7 @@ echo "nameserver  10.36.3.3" > /etc/resolv.conf
     
 ### 3   
 After that he also wants to create a subdomain eden.wise.yyy.com with alias www.eden.wise.yyy.com whose DNS is set on WISE and leads to Eden    
-## Eden server 
+# Eden server 
 Edit the /etc/bind/wise/wise.i05.com file to be as follows: 
 ```bash
 $TTL    604800  
