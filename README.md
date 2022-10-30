@@ -81,6 +81,7 @@ iface eth0 inet static
 ```  
 
 ### 2
+After that he also wants to create a subdomain eden.wise.yyy.com with alias www.eden.wise.yyy.com whose DNS is set on WISE and leads to Eden.
   
 
 
