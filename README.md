@@ -84,9 +84,9 @@ Then each node is activated by clicking the start button. After that, run the co
 To make it easier to get information about the mission from Handler, help Loid create the main website by accessing wise.yyy.com with alias www.wise.yyy.com on the wise folder.
 First, Eden Server configure the file /etc/bind/named.conf.local by adding
 ```bash
-zone "wise.I05.com" {  
+zone "wise.i05.com" {  
         type master;  
-        file "/etc/bind/wise/.I05.com";
+        file "/etc/bind/wise/.i05.com";
 };
 ```
 Create a new directory which is ```/etc/bind/wise```
@@ -102,9 +102,9 @@ $TTL            604800
                         2419200         ; Expire
                          604800 )       ; Negative Cache TTL
 ;
-@                   IN      NS      wise.i01.com.
+@                   IN      NS      wise.i05.com.
 @                   IN      A       10.36.3.3
-www                 IN      CNAME   wise.i01.com. ;
+www                 IN      CNAME   wise.i05.com. ;
 ```
 Restarting service bind9 with ```service bind9 restart```
 ```bash
@@ -114,3 +114,38 @@ echo "nameserver  10.36.3.3" > /etc/resolv.conf
 ```
     
 ### 3   
+After that he also wants to create a subdomain eden.wise.yyy.com with alias www.eden.wise.yyy.com whose DNS is set on WISE and leads to Eden    
+##Eden server 
+Edit the /etc/bind/wise/wise.i05.com file to be as follows: 
+```bash
+$TTL    604800  
+@       IN      SOA     wise.i05.com. root.wise.i05.com. (  
+                        2021100401      ; Serial
+                        604800          ; Refresh
+                        86400           ; Retry
+                        2419200         ; Expire
+                        604800 )        ; Negative Cache TTL
+;
+@               IN      NS      wise.i05.com.
+@               IN      A       10.36.2.2; IP Wise
+www             IN      CNAME   wise.i05.com.
+super           IN      A       10.36.3.3; IP Eden
+www.super       IN      CNAME   super.wise.i05.com.
+```
+Restarting service bind9 with ```service bind9 restart```    
+
+### 4
+Also create a reverse domain for the main domain.
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
