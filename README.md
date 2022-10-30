@@ -93,3 +93,24 @@ Create a new directory which is ```/etc/bind/wise```
 
 Adding configuration to ``` /etc/bind/wise/wise.I05.com```
     
+```bash
+$TTL            604800
+@               IN      SOA     wise.i05.com. root.wise.i05.com. (
+                              2         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+@                   IN      NS      wise.i01.com.
+@                   IN      A       10.36.3.3
+www                 IN      CNAME   wise.i01.com. ;
+```
+Restarting service bind9 with service bind9 restart
+```bash
+apt-get update  
+apt-get install dnsutils -y  
+echo "nameserver  10.36.3.3" > /etc/resolv.conf  
+```
+    
+### 3   
