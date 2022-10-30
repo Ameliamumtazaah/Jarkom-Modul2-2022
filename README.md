@@ -111,6 +111,7 @@ apt-get update
 apt-get install dnsutils -y  
 echo "nameserver  10.36.3.3" > /etc/resolv.conf  
 ```
+![2](https://user-images.githubusercontent.com/112918215/198871254-960c3d6c-03b3-4f9b-a433-f6d3eed7e818.jpg)    
 ### 3   
 After that he also wants to create a subdomain eden.wise.yyy.com with alias www.eden.wise.yyy.com whose DNS is set on WISE and leads to Eden    
 #### Eden server 
@@ -130,7 +131,8 @@ www             IN      CNAME   wise.i05.com.
 super           IN      A       10.36.3.3; IP Eden
 www.super       IN      CNAME   super.wise.i05.com.
 ```
-Restarting service bind9 with ```service bind9 restart```    
+Restarting service bind9 with ```service bind9 restart``` 
+![3](https://user-images.githubusercontent.com/112918215/198871257-f44593f3-3841-4a61-bb60-a2314273d583.jpg)    
 ### 4
 Also create a reverse domain for the main domain.
 #### Eden Server 
@@ -159,7 +161,7 @@ $TTL    604800
 2.45.10.in-addr.arpa.   IN      NS      wise.i05.com.
 2                       IN      PTR     wise.i05.com.    
 ```    
-    
+![4](https://user-images.githubusercontent.com/112918215/198871256-c8802b74-675e-4d52-a6ca-6f0377dcf2c5.jpg)    
 ### 5 
 To stay in touch if the WISE server has some problem, make Berlint also as the DNS Slave for the main domain 
 #### Berlint Server
