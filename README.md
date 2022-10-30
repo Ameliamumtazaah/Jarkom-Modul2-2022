@@ -15,7 +15,7 @@ WISE will be used as DNS Master, Berlint as DNS Slave, and Eden will be used as 
 To make it easier to get information about the mission from Handler, help Loid create the main website by accessing wise.yyy.com with alias www.wise.yyy.com on the wise folder.
 First we create the topology as follows:
 
-then we do the configuration on each node
- SSS as Client
-| apt-get update         
-apt-get install dnsutils |
+then we do the configuration on each node :
+---
+SSS as Client
+ 
