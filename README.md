@@ -8,13 +8,12 @@
 
 ## Opening Question
 Twilight (〈黄昏 (たそがれ) 〉, <Tasogare>) is a spy who comes from a country named Westalis. For the sake of maintaining peace between Westalis and Ostania, Twilight with a pseudonym Loid Forger (ロイド・フォージャー, Roido Fōjā) under WISE organisation run his operation in Ostania by doing espionage, sabotage, tapping, and possibly murder. Here is a map of the Ostania country :
-
-WISE will be used as DNS Master, Berlint as DNS Slave, and Eden will be used as Web Server. There are 2 clients, namely SSS and Garden. All nodes are connected to Ostania as the router, so they can access the internet.
+<img width="379" alt="SHIFT2" src="https://user-images.githubusercontent.com/112918215/198870259-df348889-f835-47be-ab4f-1c9d062f7c29.png">
 
 ### 1
 WISE will be used as DNS Master, Berlint as DNS Slave, and Eden will be used as Web Server. There are 2 clients, namely SSS and Garden. All nodes are connected to Ostania as the router, so they can access the internet.
 First we create the topology as follows:
-
+![1](https://user-images.githubusercontent.com/112918215/198870379-1a22bd6e-a507-48b5-a621-226065b0ad38.jpg)
 then we do the configuration on each node :
 Ostania as Router
 ```bash
@@ -112,7 +111,7 @@ apt-get update
 apt-get install dnsutils -y  
 echo "nameserver  10.36.3.3" > /etc/resolv.conf  
 ```
-    
+ ![1a](https://user-images.githubusercontent.com/112918215/198870380-e5201ee6-675c-4fce-b18d-b3de0239cda9.jpg)   
 ### 3   
 After that he also wants to create a subdomain eden.wise.yyy.com with alias www.eden.wise.yyy.com whose DNS is set on WISE and leads to Eden    
 #### Eden server 
@@ -133,7 +132,7 @@ super           IN      A       10.36.3.3; IP Eden
 www.super       IN      CNAME   super.wise.i05.com.
 ```
 Restarting service bind9 with ```service bind9 restart```    
-
+![1b](https://user-images.githubusercontent.com/112918215/198870382-eaaab0ff-ca9a-41bd-9dab-498b800a4aa4.jpg)
 ### 4
 Also create a reverse domain for the main domain.
 #### Eden Server 
@@ -162,6 +161,8 @@ $TTL    604800
 2.45.10.in-addr.arpa.   IN      NS      wise.i05.com.
 2                       IN      PTR     wise.i05.com.    
 ```    
+![1c](https://user-images.githubusercontent.com/112918215/198870386-1c26a725-788a-4fe9-95a8-f2944af0329c.jpg)
+    
 ### 5 
 To stay in touch if the WISE server has some problem, make Berlint also as the DNS Slave for the main domain 
 #### Berlint Server
