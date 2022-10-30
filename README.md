@@ -11,12 +11,77 @@ Twilight (〈黄昏 (たそがれ) 〉, <Tasogare>) is a spy who comes from a co
 
 WISE will be used as DNS Master, Berlint as DNS Slave, and Eden will be used as Web Server. There are 2 clients, namely SSS and Garden. All nodes are connected to Ostania as the router, so they can access the internet.
 
-## 1
+### 1
 To make it easier to get information about the mission from Handler, help Loid create the main website by accessing wise.yyy.com with alias www.wise.yyy.com on the wise folder.
 First we create the topology as follows:
 
 then we do the configuration on each node :
-SSS as Client
+Ostania as Router
+```bash
+auto eth0
+iface eth0 inet dhcp
+
+auto eth1
+iface eth1 inet static
+    address 10.36.1.1
+    netmask 255.255.255.0
+
+auto eth2
+iface eth2 inet static
+    address 10.36.2.1
+    netmask 255.255.255.0
+
+auto eth3
+iface eth3 inet static
+    address 10.36.3.1
+    netmask 255.255.255.0
+  
+SSS and Garden as Client
 ```bash
 apt-get update         
 apt-get install dnsutils 
+  
+```bash
+auto eth0
+iface eth0 inet static
+    address 10.36.1.2
+    netmask 255.255.255.0
+    gateway 10.36.1.1
+  
+```bash
+auto eth0
+iface eth0 inet static
+    address 10.36.1.3
+    netmask 255.255.255.0
+    gateway 10.36.1.1
+
+Wise as DNS Master
+```bash
+auto eth2
+iface eth2 inet static
+    address 10.36.2.2
+    netmask 255.255.255.0
+    gateway 10.36.2.1
+  
+Berlin as DNS Slave
+```bash
+auto eth0
+iface eth0 inet static
+    address 10.36.3.2
+    netmask 255.255.255.0
+    gateway 10.36.3.1
+ 
+Eden as Web Server
+```bash
+auto eth0
+iface eth0 inet static
+    address 10.36.3.3
+    netmask 255.255.255.0
+    gateway 10.36.3.1
+  
+
+### 2
+  
+
+
+  
