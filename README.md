@@ -136,14 +136,51 @@ Restarting service bind9 with ```service bind9 restart```
 
 ### 4
 Also create a reverse domain for the main domain.
-    
-    
-    
-    
-    
-    
-    
-    
+#### Eden Server 
+Edit the ```/etc/bind/named.conf.local``` file as follows:
+```bash  
+zone "wise.i05.com" {
+         type masters;
+         file "/etc/bind/wise/wise.i05.com";
+};
+
+zone "2.45.10.in-addr.arpa" {
+         type masters;
+         file "/etc/bind/wise/2.45.10.in-addr.arpa";
+};    
+```    
+And configure the file /etc/bind/kaizoku/2.45.10.in-addr.arpa as follows:    
+```bash     
+$TTL    604800  
+@       IN      SOA     wise.i05.com. root.wise.i05.com. (
+                        2021100401      ; Serial
+                        604800          ; Refresh
+                        86400           ; Retry
+                        2419200         ; Expire
+                        604800 )        ; Negative Cache TTL
+;
+2.45.10.in-addr.arpa.   IN      NS      wise.i05.com.
+2                       IN      PTR     wise.i05.com.    
+```    
+### 5 
+To stay in touch if the WISE server has some problem, make Berlint also as the DNS Slave for the main domain 
+#### Berlint Server
+configure the file /etc/bind/named.conf.local as follows to configure the DNS Slave pointing to Berlint :
+```bash     
+zone "wise.i05.com" {  
+        type master;
+        notify yes;
+        also-notify {10.36.3.2;};  
+        allow-transfer {10.36.3.2;}; 
+        file "/etc/bind/wise/wise.i05.com";
+};
+  
+zone "2.45.10.in-addr.arpa" {
+        type master;
+        file "/etc/bind/wise/2.45.10.in-addr.arpa";
+};
+```    
+Restarting service bind9 with ```service bind9 restart```     
     
     
     
