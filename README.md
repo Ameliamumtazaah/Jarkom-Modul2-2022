@@ -12,7 +12,7 @@ Twilight (〈黄昏 (たそがれ) 〉, <Tasogare>) is a spy who comes from a co
 WISE will be used as DNS Master, Berlint as DNS Slave, and Eden will be used as Web Server. There are 2 clients, namely SSS and Garden. All nodes are connected to Ostania as the router, so they can access the internet.
 
 ### 1
-To make it easier to get information about the mission from Handler, help Loid create the main website by accessing wise.yyy.com with alias www.wise.yyy.com on the wise folder.
+WISE will be used as DNS Master, Berlint as DNS Slave, and Eden will be used as Web Server. There are 2 clients, namely SSS and Garden. All nodes are connected to Ostania as the router, so they can access the internet.
 First we create the topology as follows:
 
 then we do the configuration on each node :
@@ -79,10 +79,16 @@ iface eth0 inet static
     netmask 255.255.255.0
     gateway 10.36.3.1
 ```  
-
+Then each node is activated by clicking the start button. After that, run the command on the Ostania router to try to connect to the internet.
 ### 2
-After that he also wants to create a subdomain eden.wise.yyy.com with alias www.eden.wise.yyy.com whose DNS is set on WISE and leads to Eden.
-  
-
-
-  
+To make it easier to get information about the mission from Handler, help Loid create the main website by accessing wise.yyy.com with alias www.wise.yyy.com on the wise folder.
+First, Eden Server configure the file /etc/bind/named.conf.local by adding
+```bash
+zone "wise.I05.com" {  
+        type master;  
+        file "/etc/bind/wise/.I05.com";
+};
+```
+Create a new directory which is ```/etc/bind/wise```
+Adding configuration to ``` /etc/bind/wise/wise.I05.com```
+    
