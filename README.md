@@ -106,7 +106,7 @@ $TTL            604800
 @                   IN      A       10.36.3.3
 www                 IN      CNAME   wise.i01.com. ;
 ```
-Restarting service bind9 with service bind9 restart
+Restarting service bind9 with ```service bind9 restart```
 ```bash
 apt-get update  
 apt-get install dnsutils -y  
